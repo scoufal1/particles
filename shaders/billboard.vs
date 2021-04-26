@@ -15,5 +15,27 @@ void main()
 {
    color = uColor;
    uv = vPos.xy;
-   gl_Position = vec4(vPos, 1.0); 
+
+   // translate to center around origin
+   vec3 moveToOrigin = vec3(-0.5, -0.5, 0.0);
+   vec3 pos = vPos + moveToOrigin;
+
+   // scale
+   pos.x = pos.x * uSize;
+   pos.y = pos.y * uSize;
+   pos.z = pos.z * uSize;
+
+   // rotate
+   vec3 up = vec3(0.0, 1.0, 0.0);
+   vec3 rotZ = normalize(uCameraPos - pos);
+   vec3 rotX = normalize(cross(up, rotZ));
+   vec3 rotY = normalize(cross(rotZ, rotX));
+
+   mat3 rotation = mat3(rotX, rotY, rotZ);
+   pos = rotation * pos;
+
+   // translate to center around uOffset
+   pos = pos + uOffset;
+   
+   gl_Position = uVP * vec4(pos, 1.0);
 }
