@@ -47,4 +47,14 @@ particles/build $ ../bin/demo
 
 ## Results
 
-TODO: Show your work
+## Required materials
+
+Confetti particle system:
+
+https://user-images.githubusercontent.com/48161551/116501454-cdfa2300-a87e-11eb-8207-f4f085ae2471.mov
+
+## Unique demo
+
+Smoke plume particle system:
+
+https://user-images.githubusercontent.com/48161551/116501452-cd618c80-a87e-11eb-8566-1252ddfc8790.mov
